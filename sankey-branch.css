@@ -1,0 +1,94 @@
+.node-text {
+    display: none;
+    font-family: sans-serif;
+    text-anchor: middle;
+    font-weight: bold;
+    fill: dimgray;
+    pointer-events: none;
+    user-select: none;
+}
+
+.node-text-count {
+    display: none;
+    font-family: sans-serif;
+    font-size: 11px;
+    text-anchor: middle;
+    fill: dimgray;
+    pointer-events: none;
+    user-select: none;
+}
+
+.node {
+    display: none;
+    fill: gray;
+    fill-opacity: .2;
+    stroke: none;
+}
+
+.node.user-input {
+    fill: dodgerblue;
+}
+
+.node-left-border {
+    display: none;
+    shape-rendering: crispEdges;
+    stroke: gray;
+    stroke-opacity: .5;
+    stroke-width: 1;
+}
+
+.node-left-border.user-input {
+    stroke: dodgerblue;
+}
+
+.is-visible {
+    display: block;
+}
+
+.node-text.user-input {
+    display: block;
+    fill: blue;
+}
+
+.show-results .node,
+.show-results .node-left-border,
+.show-results .node-text {
+    display: block;
+}
+
+.show-results .node.is-correct {
+    fill: green;
+}
+
+.show-results .node-left-border.is-correct {
+    stroke: green;
+}
+
+.show-results .node-text.is-correct {
+    fill: green;
+}
+
+.show-results .node-text-count.is-correct {
+    fill: green;
+}
+
+.show-results .node.user-input:not(.is-correct) {
+    fill: red;
+}
+
+.show-results .node-left-border.user-input:not(.is-correct) {
+    stroke: red;
+}
+
+.show-results .node-text.user-input:not(.is-correct) {
+    display: block;
+    fill: darkred;
+}
+
+.show-results .node-text.node.user-input:not(.is-correct) {
+    fill: darkred;
+}
+
+.is-padding {
+    display: none !important;
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sankey Test</title>
+    <style>
+        .container {
+            padding-top: 48px;
+        }
+
+        .svg-area {
+            margin-top: 24px;
+            margin-left: 10px;
+        }
+        
+        .link {
+            fill: none;
+            stroke: #000;
+            stroke-opacity: .2;
+        }
+        
+        .link:hover {
+            stroke-opacity: .5;
+        }  
+
+        .input-area {
+            margin-left: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="sankey-branch.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="d3-sankey.js"></script>
+    <script src="sankey-branch.js"></script>
+    <script>
+        var json = {
+            names: {
+                'deschanel': [
+                    {
+                        'name':'deschanel',
+                        'count':18338
+                    },
+                    {
+                        'name':'dechanel',
+                        'count':1550
+                    },
+                    {
+                        'name':'deschannel',
+                        'count':934
+                    },
+                    {
+                        'name':'deschenel',
+                        'count':404
+                    },
+                    {
+                        'name':'deshanel',
+                        'count':364
+                    },
+                    {
+                        'name':'dechannel',
+                        'count':359
+                    },
+                    {
+                        'name':'deschanelle',
+                        'count':316
+                    },
+                    {
+                        'name':'dechanelle',
+                        'count':192
+                    },
+                ],
+                'galifianakis':[  
+                    {  
+                        'name':'galifinakis',
+                        'count':6521
+                    },
+                    {  
+                        'name':'galifianakis',
+                        'count':2486
+                    },
+                    {  
+                        'name':'galafinakis',
+                        'count':2321
+                    },
+                    {  
+                        'name':'galafanakis',
+                        'count':1514
+                    },
+                    {  
+                        'name':'galifanakis',
+                        'count':1374
+                    },
+                    {  
+                        'name':'galafianakis',
+                        'count':589
+                    },
+                    {  
+                        'name':'gallifinakis',
+                        'count':436
+                    },
+                    {  
+                        'name':'galifiniakis',
+                        'count':285
+                    }
+                ],
+                'mcconaughey':[  
+                    {  
+                        'name':'mcconaughey',
+                        'count':6505
+                    },
+                    {  
+                        'name':'mcconaghey',
+                        'count':1501
+                    },
+                    {  
+                        'name':'mcconahey',
+                        'count':1090
+                    },
+                    {  
+                        'name':'mcconnaughey',
+                        'count':650
+                    },
+                    {  
+                        'name':'mcconaughy',
+                        'count':468
+                    },
+                    {  
+                        'name':'mcconahay',
+                        'count':367
+                    },
+                    {  
+                        'name':'mcconnaghey',
+                        'count':329
+                    },
+                    {  
+                        'name':'mcconnahey',
+                        'count':309
+                    },
+                    {  
+                        'name':'mcconaghy',
+                        'count':262
+                    },
+                    {  
+                        'name':'mconaughey',
+                        'count':199
+                    },
+                    {  
+                        'name':'mccounaghey',
+                        'count':191
+                    },
+                    {  
+                        'name':'mccaughnahey',
+                        'count':187
+                    },
+                    {  
+                        'name':'mcconnaughy',
+                        'count':177
+                    },
+                    {  
+                        'name':'mcconoughey',
+                        'count':173
+                    },
+                    {  
+                        'name':'mccoughnahey',
+                        'count':170
+                    },
+                    {  
+                        'name':'mcconaugh',
+                        'count':160
+                    },
+                    {  
+                        'name':'mcconnehey',
+                        'count':144
+                    },
+                    {  
+                        'name':'mcconaughay',
+                        'count':128
+                    },
+                    {  
+                        'name':'mcconaghay',
+                        'count':115
+                    },
+                    {  
+                        'name':'mcconehey',
+                        'count':110
+                    },
+                    {  
+                        'name':'mccaunaghey',
+                        'count':107
+                    },
+                    {  
+                        'name':'mccaughney',
+                        'count':104
+                    },
+                    {  
+                        'name':'mccaughnehey',
+                        'count':98
+                    },
+                    {  
+                        'name':'maconahey',
+                        'count':94
+                    },
+                    {  
+                        'name':'mcconnaghy',
+                        'count':92
+                    },
+                    {  
+                        'name':'mcconauhey',
+                        'count':92
+                    },
+                    {  
+                        'name':'mcconaughe',
+                        'count':92
+                    },
+                    {  
+                        'name':'mccaunahey',
+                        'count':91
+                    },
+                    {  
+                        'name':'mconaghey',
+                        'count':89
+                    },
+                    {  
+                        'name':'mconahey',
+                        'count':88
+                    },
+                    {  
+                        'name':'mcconaghuey',
+                        'count':85
+                    },
+                    {  
+                        'name':'macconahey',
+                        'count':78
+                    },
+                    {  
+                        'name':'mccoughney',
+                        'count':77
+                    },
+                    {  
+                        'name':'maconaughey',
+                        'count':74
+                    },
+                    {  
+                        'name':'mcconaheigh',
+                        'count':68
+                    },
+                    {  
+                        'name':'macconaughey',
+                        'count':68
+                    },
+                    {  
+                        'name':'mcconahy',
+                        'count':62
+                    },
+                    {  
+                        'name':'mcconoughy',
+                        'count':62
+                    },
+                    {  
+                        'name':'mcconnahay',
+                        'count':57
+                    },
+                    {  
+                        'name':'mconnahey',
+                        'count':55
+                    },
+                    {  
+                        'name':'mcconahaugh',
+                        'count':54
+                    },
+                    {  
+                        'name':'mcconeghey',
+                        'count':52
+                    },
+                    {  
+                        'name':'mconnaughey',
+                        'count':52
+                    },
+                    {  
+                        'name':'maconaghey',
+                        'count':51
+                    }
+                ]
+            }
+        }
+
+        window.addEventListener('load', function() {
+            var deInputEl = document.getElementById('de-sankey-input');
+            var deResultsEl = document.getElementById('de-sankey-results-btn');
+            var deSvgEl = document.getElementById('de-sankey-svg');
+
+            var deSankeyBranch = new SankeyBranch(json.names['deschanel'], 'deschanel', deInputEl, deResultsEl, deSvgEl);
+            deSankeyBranch.init();
+
+            var gaInputEl = document.getElementById('ga-sankey-input');
+            var gaResultsEl = document.getElementById('ga-sankey-results-btn');
+            var gaSvgEl = document.getElementById('ga-sankey-svg');
+
+            var gaSankeyBranch = new SankeyBranch(json.names['galifianakis'], 'galifianakis', gaInputEl, gaResultsEl, gaSvgEl);
+            gaSankeyBranch.init();
+
+            var mcInputEl = document.getElementById('mc-sankey-input');
+            var mcResultsEl = document.getElementById('mc-sankey-results-btn');
+            var mcSvgEl = document.getElementById('mc-sankey-svg');
+
+            var mcSankeyBranch = new SankeyBranch(json.names['mcconaughey'], 'mcconaughey', mcInputEl, mcResultsEl, mcSvgEl);
+            mcSankeyBranch.init();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="input-area">
+            <p>Enter your guess for "deschanel":</p>
+            <input id="de-sankey-input" spellcheck="false" maxlength="1"></input>
+            <button id="de-sankey-results-btn">Show Results</button>
+        </div>
+        <div class="svg-area">
+            <svg id="de-sankey-svg"></svg>
+        </div>
+
+        <div class="input-area">
+                <p>Enter your guess for "galifianakis":</p>
+                <input id="ga-sankey-input" spellcheck="false" maxlength="1"></input>
+                <button id="ga-sankey-results-btn">Show Results</button>
+            </div>
+            <div class="svg-area">
+                <svg id="ga-sankey-svg"></svg>
+        </div>
+
+        <div class="input-area">
+                <p>Enter your guess for "mcconaughey":</p>
+                <input id="mc-sankey-input" spellcheck="false" maxlength="1"></input>
+                <button id="mc-sankey-results-btn">Show Results</button>
+            </div>
+            <div class="svg-area">
+                <svg id="mc-sankey-svg"></svg>
+        </div>
+    </div>
+</body>
+</html>
